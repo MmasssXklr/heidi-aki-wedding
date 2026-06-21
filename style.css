@@ -1,0 +1,395 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* COLORS */
+:root {
+    --burgundy:#710117;
+    --maroon:#800000;
+    --wine:#8A101E;
+    --cardinal:#CC183C;
+    --pink:#F75C7B;
+    --bg:#FFFDFD;
+    --text:#222;
+}
+
+/* BODY */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--burgundy), var(--wine), var(--cardinal));
+    color: white;
+}
+
+/* DARK OVERLAY */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+}
+
+/* CONTENT */
+.hero-content {
+    position: relative;
+    max-width: 800px;
+    z-index: 2;
+}
+
+/* TEXT */
+.blessing {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.names span {
+    color: var(--pink);
+}
+
+.invite-text {
+    margin-top: 10px;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.date {
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+/* CARDS */
+.details {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 250px;
+    backdrop-filter: blur(10px);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: var(--pink);
+}
+
+/* BUTTON */
+.btn {
+    margin-top: 30px;
+    padding: 12px 25px;
+    border: none;
+    background: var(--pink);
+    color: white;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--cardinal);
+    transform: scale(1.05);
+}
+
+
+
+#rsvpBtn {
+  margin-top: 30px;
+  padding: 14px 34px;
+  border: none;
+  background: var(--burgundy);
+  color: white;
+  font-size: 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  animation: pulse 2.0s infinite;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+    .names {
+        font-size: 40px;
+    }
+
+    .details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
+
+/*SECOND PAGE*/
+
+/* PAGE 2 */
+.section-two {
+    padding: 80px 20px;
+    background: #FFFDFD;
+    text-align: center;
+}
+
+/* SECTION TITLE */
+.section-title {
+    font-size: 36px;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--burgundy);
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+/* BLOCKS */
+.block {
+    margin-bottom: 30px;
+}
+
+.block h3 {
+    color: var(--wine);
+    margin-bottom: 10px;
+}
+
+.block p {
+    margin: 3px 0;
+}
+
+/* SUB TITLE */
+.sub-title {
+    margin: 50px 0 20px;
+    color: var(--cardinal);
+    font-size: 22px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* NAME CARD */
+.name-card {
+    background: #fff;
+    border: 1px solid rgba(113,1,23,0.15);
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.name-card:hover {
+    background: var(--burgundy);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* TWO COLUMN */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+}
+
+.two-col h4 {
+    color: var(--wine);
+    margin-bottom: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .two-col {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.section-three {
+    padding: 80px 20px;
+    background: #FFFDFD;
+    text-align: center;
+}
+
+/* CARD SECTION */
+.card-section {
+    max-width: 800px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(113,1,23,0.15);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.card-section h3 {
+    color: var(--burgundy);
+    margin-bottom: 15px;
+}
+
+/* TEXT */
+.text {
+    font-size: 15px;
+    margin: 8px 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* COLOR GRID */
+.color-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.color-grid span {
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.burgundy {
+    background: #710117;
+}
+
+.maroon {
+    background: #800000;
+}
+
+.wine-red {
+    background: #8A101E;
+}
+
+.crimson {
+    background: #DC143C;
+}
+
+.madder {
+    background: #A20021;
+}
+
+.cardinal {
+    background: #CC183C;
+}
+
+.folly {
+    background: #F52F57;
+}
+
+.bright-pink {
+    background: #F75C7B;
+    color: #222; /* Better contrast on the lighter pink */
+}
+
+/* LIST */
+.list {
+    text-align: left;
+    max-width: 500px;
+    margin: auto;
+}
+
+.list li {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+/* HIGHLIGHT CARD */
+.highlight {
+    background: linear-gradient(135deg, var(--burgundy), var(--wine));
+    color: white;
+}
+
+.highlight h3,
+.highlight p {
+    color: white;
+}
+
+/* UNPLUGGED */
+.unplugged {
+    border-left: 5px solid var(--pink);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .card-section {
+        padding: 20px;
+    }
+}
+
+.timer{
+    display:flex;
+    gap:50px;
+}
+
+.time{
+    text-align: center;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 8px 20px rgba(113,1,23,0.2);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 12px 30px rgba(113,1,23,0.35);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 8px 20px rgba(113,1,23,0.2);
+  }
+}
