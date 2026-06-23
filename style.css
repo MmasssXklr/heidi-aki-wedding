@@ -63,11 +63,18 @@ body {
     opacity: 0.9;
 }
 
-.names {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 60px;
-    font-weight: 600;
+@font-face {
+    font-family: 'Belinda';
+    src: url('./fonts/Belinda.ttf') format('truetype');
 }
+
+.names {
+    font-family: 'Belinda', cursive;
+    font-size: 60px;
+    
+}
+
+
 
 .names span {
     color: var(--pink);
