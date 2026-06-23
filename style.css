@@ -29,7 +29,8 @@ body {
 
 /* HERO */
 .hero {
-    height: 100vh;
+    height: auto;
+    min-height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
