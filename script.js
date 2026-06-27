@@ -83,13 +83,13 @@ function updateUI() {
   if (currentRSVP === "Yes") {
 
     document.getElementById("message").innerText =
-      "✓ You are attending.";
+      " You are attending.";
 
     document.getElementById("helper").innerText =
       "Need to change your RSVP? Click again.";
 
     btn.innerText =
-      "✓ Attending";
+      " Attending";
 
   } else {
 
