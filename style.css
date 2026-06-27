@@ -33,24 +33,22 @@ body {
 
 /* HERO */
 .hero {
+    padding: 10px 0 0 0;
     height: auto;
-    min-height: 100dvh;
-    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     position: relative;
-    padding: 20px;
     background: linear-gradient(135deg, var(--burgundy), var(--wine), var(--cardinal));
     color: white;
 }
 
 /* DARK OVERLAY */
-.overlay {
+/* .overlay {
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.35);
-}
+} */
 
 /* CONTENT */
 .hero-content {
