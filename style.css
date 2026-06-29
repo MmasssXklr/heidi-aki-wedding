@@ -44,17 +44,21 @@ body {
 }
 
 /* DARK OVERLAY */
-/* .overlay {
-    position: absolute;
+ .overlay {
     inset: 0;
-    background: rgba(0,0,0,0.35);
 } */
+
+
+
 
 /* CONTENT */
 .hero-content {
     position: relative;
     max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
     z-index: 2;
+    
 }
 
 /* TEXT */
@@ -66,15 +70,14 @@ body {
 }
 
 @font-face {
-    font-family: 'Belinda';
-    src: url('./fonts/Belinda.ttf') format('truetype');
+    font-family: 'Calligraphy';
+    src: url('./fonts/Calligraphy.otf') format('truetype');
 }
 
 .names {
-        font-family: 'Cormorant Garamond', serif;
-
-    font-size: 60px; 
-    
+    font-family: 'Calligraphy';
+    font-size: 6em; 
+    letter-spacing: 0.5em;
 }
 
 
@@ -99,7 +102,7 @@ body {
     display: flex;
     gap: 20px;
     justify-content: center;
-    margin-top: 30px;
+    margin: 30px;
     flex-wrap: wrap;
 }
 
@@ -113,7 +116,7 @@ body {
 
 .card h3 {
     margin-bottom: 10px;
-    color: var(--pink);
+    color: var(--white);
 }
 
 /* BUTTON */
@@ -121,7 +124,7 @@ body {
     margin: 10px;
     padding: 12px 25px;
     border: none;
-    background: var(--pink);
+    background: var(--burgundy);
     color: white;
     font-size: 16px;
     border-radius: 30px;
@@ -132,6 +135,7 @@ body {
 .btn:hover {
     background: var(--cardinal);
     transform: scale(1.05);
+
 }
 
 
@@ -165,7 +169,7 @@ body {
 @media (max-width: 768px) {
 
     .names {
-        font-size: 40px;
+        font-size: 3em;
     }
 
     .details {
@@ -433,6 +437,7 @@ body {
     font-size:22px;
     font-weight:bold;
     color:white;
+    font-size: clamp(16px, 4vw, 22px);
 }
 
 #hashtag span{
@@ -463,7 +468,7 @@ body {
     #hashtag span:nth-child(16){animation-delay:1.5s;}
     #hashtag span:nth-child(17){animation-delay:1.6s;}
     #hashtag span:nth-child(18){animation-delay:1.7s;}
-    #hashtag span:nth-child(19){animation-delay:1.8;}
+    #hashtag span:nth-child(19){animation-delay:1.8s;}
 
 @keyframes glow{
 
@@ -482,9 +487,6 @@ body {
 
 }
 
-#hashtag {
-    font-size: clamp(16px, 4vw, 22px);
-}
 #hashtag i {
     font-size: 1em;
 }
