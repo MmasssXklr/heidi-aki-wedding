@@ -99,11 +99,11 @@ body {
 
 /* CARDS */
 .details {
-    display: flex;
+    
     gap: 20px;
     justify-content: center;
     margin: 30px;
-    flex-wrap: wrap;
+    
 }
 
 .card {
@@ -178,7 +178,7 @@ body {
     }
 
     .card {
-        width: 90%;
+        width: 100%;
     }
 
 }
