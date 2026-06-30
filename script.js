@@ -234,3 +234,31 @@ function login() {
 login();
 
 
+
+const btn = document.getElementById("enterBtn");
+const landing = document.getElementById("landing-page");
+const music = document.getElementById("bgMusic");
+
+// Prevent scrolling until invitation is opened
+document.body.style.overflow = "hidden";
+
+btn.addEventListener("click", () => {
+
+    // Start music
+    music.volume = 0.3;
+    music.play();
+
+    // Fade out landing page
+    landing.style.opacity = "0";
+
+    // Enable scrolling
+    document.body.style.overflow = "auto";
+
+    // Remove landing page after fade
+    setTimeout(() => {
+        landing.style.display = "none";
+    }, 1000);
+
+});
+
+
