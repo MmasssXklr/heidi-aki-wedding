@@ -16,6 +16,7 @@
     --wine:#8A101E;
     --cardinal:#CC183C;
     --pink:#F75C7B;
+    --red:#FF0000;
     --bg:#FFFDFD;
     --text:#222;
 }
@@ -352,6 +353,14 @@ body {
     background: #800000;
 }
 
+.red {
+    background-color: #FF0000;
+}
+
+.pink{
+    background-color: #F75C7B;
+}
+
 .wine-red {
     background: #8A101E;
 }
@@ -438,7 +447,7 @@ body {
 
 #hashtag span{
     display:inline-block;
-    animation: glow 6s infinite;
+    animation: glow 3s infinite;
 }
 
 #hashtag i {
@@ -465,6 +474,8 @@ body {
     #hashtag span:nth-child(17){animation-delay:1.6s;}
     #hashtag span:nth-child(18){animation-delay:1.7s;}
     #hashtag span:nth-child(19){animation-delay:1.8s;}
+    #hashtag span:nth-child(20){animation-delay:1.9s;}
+    #hashtag span:nth-child(21){animation-delay:2.1s;}
 
 @keyframes glow{
 
@@ -573,4 +584,27 @@ body {
 
 #invitation{
     display:none;
+}
+
+#note {
+    text-align: justify;
+}
+
+#note h3{
+    text-align: center;
+}
+
+footer{
+    margin: auto;
+    padding: 1em;
+    color: firebrick;
+    text-align: center;
+    background-color: #8a101e;
+    color: #FFFDFD;
+    
+}
+footer a{
+    text-decoration: none;
+    color: #F75C7B;
+    font-weight: bold;
 }

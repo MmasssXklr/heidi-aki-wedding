@@ -89,7 +89,7 @@ function updateUI() {
       "Need to change your RSVP? Click again.";
 
     btn.innerText =
-      " Attending";
+      " Done";
 
   } else {
 
@@ -245,7 +245,7 @@ document.body.style.overflow = "hidden";
 btn.addEventListener("click", () => {
 
     // Start music
-    music.volume = 0.3;
+    music.volume = 0.1;
     music.play();
 
     // Fade out landing page
