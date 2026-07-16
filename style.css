@@ -36,9 +36,26 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
-    background: linear-gradient(135deg, var(--burgundy), var(--wine), var(--cardinal));
-    color: white;
+    background-image: url("./images/DSC03137.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;    
 }
+
+.hero::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(185, 48, 48, 0.35); /* Adjust darkness */
+    z-index: 0;
+}
+
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+
 
 /* DARK OVERLAY */
  .overlay {
@@ -594,6 +611,7 @@ body {
     text-align: center;
 }
 
+
 footer{
     margin: auto;
     padding: 1em;
@@ -608,3 +626,6 @@ footer a{
     color: #F75C7B;
     font-weight: bold;
 }
+
+
+
