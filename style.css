@@ -80,6 +80,7 @@ body {
     font-size: 14px;
     letter-spacing: 1px;
     margin-bottom: 20px;
+    padding-top: 20px;
     opacity: 0.9;
 }
 
@@ -594,7 +595,7 @@ body {
     justify-content:center;
     align-items:center;
     z-index:9999;
-    transition:opacity 3s ease;
+    transition:opacity 5s ease;
 }
 
 
@@ -609,6 +610,33 @@ body {
 
 #note h3{
     text-align: center;
+}
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+.gallery-item {
+    width: 300px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.gallery-item img {
+    width: 100%;
+    
+    object-fit: cover;
+
+}
+
+
+#monogram{
+    width: 20em;
 }
 
 
