@@ -418,7 +418,7 @@ body {
 
 /* HIGHLIGHT CARD */
 .highlight {
-    background: linear-gradient(135deg, var(--burgundy), var(--wine));
+    background: linear-gradient(135deg, var(--burgundy));
     color: white;
 }
 
@@ -619,21 +619,38 @@ body {
     justify-content: center;
     gap: 20px;
 
+
 }
 
 .gallery-item {
     width: 300px;
+    height: 400px;
     overflow: hidden;
     border-radius: 15px;
 }
 
 .gallery-item img {
     width: 100%;
-    
+    height: 100%;
     object-fit: cover;
+    display: block;
+    object-position: center center;
+
 
 }
 
+.gallery-stack{
+    display: flex;
+    flex-direction: column;
+}
+.gallery-stack{
+    height: 50%;
+}
+
+
+.photo6 {
+    object-position: center center;
+}
 
 #monogram{
     width: 20em;

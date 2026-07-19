@@ -3,7 +3,7 @@ const Hours = document.getElementById('hours');
 const Minutes = document.getElementById('minutes');
 const Seconds = document.getElementById('seconds');
 
-const targetDate = new Date("2026-08-21T14:00:00").getTime();
+const targetDate = new Date("2026-08-21T14:30:00").getTime();
 
 function timer() {
 
