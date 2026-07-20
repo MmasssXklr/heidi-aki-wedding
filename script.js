@@ -1,3 +1,5 @@
+
+
 const Days = document.getElementById('days');
 const Hours = document.getElementById('hours');
 const Minutes = document.getElementById('minutes');
@@ -35,7 +37,7 @@ setInterval(timer, 1000);
 /* RSVP */
 
 const WEBAPP_URL =
-"https://script.google.com/macros/s/AKfycbzea-2rcfK0C6HQB80rTJi-esO3ct0nCvPA_9TfgZjkeHYOu3U3uevgxAP4WvrwqGPLYQ/exec";
+"https://script.google.com/macros/s/AKfycbxyK3L79N-ybFte8i7Pf3nTGvqqFw-2XHFFwff0vfbqiNAufo3bvhKRwAdlKlT17-b74A/exec";
 
 const params = new URLSearchParams(window.location.search);
 const guestId = params.get("id");
@@ -91,6 +93,9 @@ function updateUI() {
     btn.innerText =
       " Done";
 
+    document.getElementById("companionSection").style.display = "block";
+    loadCompanionRequests()
+
   } else {
 
     document.getElementById("message").innerText =
@@ -101,6 +106,8 @@ function updateUI() {
 
     btn.innerText =
       "Accept Invitation";
+
+    document.getElementById("companionSection").style.display = "none";
   }
 }
 
@@ -261,4 +268,100 @@ btn.addEventListener("click", () => {
 
 });
 
+
+function loadCompanionRequests() {
+
+    fetch(`${WEBAPP_URL}?id=${guestId}&token=${token}`)
+        .then(res => res.json())
+        .then(data => {
+
+            if (data.status !== "success") return;
+
+            renderCompanionRequests(data.companions || []);
+
+        });
+
+}
+
+function renderCompanionRequests(companions) {
+
+    const list = document.getElementById("companionList");
+
+    list.innerHTML = "";
+
+    companions.forEach(request => {
+
+        list.innerHTML += `
+            <div class="request-card">
+                <h4>${request.name}</h4>
+                <div class="request-status">${request.status}</div>
+            </div>
+        `;
+
+    });
+
+}
+
+
+function submitCompanionRequest() {
+
+    const input = document.getElementById("companionName");
+    const btn = document.getElementById("submitCompanionBtn");
+
+    const companionName = input.value.trim();
+
+    if (!companionName) {
+        alert("Please enter your companion's name.");
+        return;
+    }
+
+    if (!confirm(`Please confirm the companion's name:\n\n${companionName}`))
+        return;
+
+    btn.disabled = true;
+    btn.textContent = "Submitting...";
+
+    fetch(WEBAPP_URL, {
+
+        method: "POST",
+
+        body: JSON.stringify({
+
+            action: "companion",
+
+            guestId: guestId,
+
+            token: token,
+
+            companionName: companionName
+
+        })
+
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        btn.disabled = false;
+        btn.textContent = "Submit Request";
+
+        if (data.status !== "success") {
+            alert(data.message);
+            return;
+        }
+
+        input.value = "";
+
+        loadCompanionRequests();
+
+    })
+    .catch(() => {
+
+        btn.disabled = false;
+        btn.textContent = "Submit Request";
+
+        alert("Unable to submit request.");
+
+    });
+
+}
 
