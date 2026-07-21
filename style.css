@@ -394,8 +394,8 @@ body {
 
 /* CARD SECTION */
 .card-section {
-    max-width: 800px;
-    margin: 30px auto;
+    max-width: 1200px;
+    margin: 10px auto;
     background: #fff;
     padding: 25px;
     border-radius: 12px;
@@ -769,6 +769,7 @@ body {
 
 #monogram{
     width: 20em;
+    margin-top: 3em;
 }
 
 
@@ -810,6 +811,10 @@ footer a{
 
 #companionList{
     margin-top:25px;
+}
+
+#companionName {
+    text-align: center;
 }
 
 .request-card{
