@@ -1,5 +1,3 @@
-
-
 const Days = document.getElementById('days');
 const Hours = document.getElementById('hours');
 const Minutes = document.getElementById('minutes');
@@ -10,26 +8,26 @@ const rsvpdeadline = new Date("2026-08-03T23:59:59");
 
 function timer() {
 
-    const currentDate = new Date().getTime();
-    const distance = targetDate - currentDate;
+  const currentDate = new Date().getTime();
+  const distance = targetDate - currentDate;
 
-    if (distance < 0) {
-        Days.innerHTML = 0;
-        Hours.innerHTML = 0;
-        Minutes.innerHTML = 0;
-        Seconds.innerHTML = 0;
-        return;
-    }
+  if (distance < 0) {
+    Days.innerHTML = 0;
+    Hours.innerHTML = 0;
+    Minutes.innerHTML = 0;
+    Seconds.innerHTML = 0;
+    return;
+  }
 
-    const days = Math.floor(distance / 1000 / 60 / 60 / 24);
-    const hours = Math.floor(distance / 1000 / 60 / 60) % 24;
-    const minutes = Math.floor(distance / 1000 / 60) % 60;
-    const seconds = Math.floor(distance / 1000) % 60;
+  const days = Math.floor(distance / 1000 / 60 / 60 / 24);
+  const hours = Math.floor(distance / 1000 / 60 / 60) % 24;
+  const minutes = Math.floor(distance / 1000 / 60) % 60;
+  const seconds = Math.floor(distance / 1000) % 60;
 
-    Days.innerHTML = days;
-    Hours.innerHTML = hours;
-    Minutes.innerHTML = minutes;
-    Seconds.innerHTML = seconds;
+  Days.innerHTML = days;
+  Hours.innerHTML = hours;
+  Minutes.innerHTML = minutes;
+  Seconds.innerHTML = seconds;
 }
 
 timer();
@@ -38,7 +36,7 @@ setInterval(timer, 1000);
 /* RSVP */
 
 const WEBAPP_URL =
-"https://script.google.com/macros/s/AKfycbxyK3L79N-ybFte8i7Pf3nTGvqqFw-2XHFFwff0vfbqiNAufo3bvhKRwAdlKlT17-b74A/exec";
+  "https://script.google.com/macros/s/AKfycbxyK3L79N-ybFte8i7Pf3nTGvqqFw-2XHFFwff0vfbqiNAufo3bvhKRwAdlKlT17-b74A/exec";
 
 const params = new URLSearchParams(window.location.search);
 const guestId = params.get("id");
@@ -48,23 +46,23 @@ let currentRSVP = null;
 
 function checkRSVPDeadline() {
 
-    if (new Date() > rsvpdeadline) {
+  if (new Date() > rsvpdeadline) {
 
-        const rsvpBtn = document.getElementById("rsvpBtn");
-        const companionBtn = document.getElementById("submitCompanionBtn");
+    const rsvpBtn = document.getElementById("rsvpBtn");
+    const companionBtn = document.getElementById("submitCompanionBtn");
 
-        rsvpBtn.disabled = true;
-        rsvpBtn.innerText = "RSVP Closed";
+    rsvpBtn.disabled = true;
+    rsvpBtn.innerText = "RSVP Closed";
 
-        if (companionBtn) {
-            companionBtn.disabled = true;
-            companionBtn.innerText = "Requests Closed";
-        }
-
-        document.getElementById("helper").innerText =
-            "The RSVP period has ended.";
-
+    if (companionBtn) {
+      companionBtn.disabled = true;
+      companionBtn.innerText = "Requests Closed";
     }
+
+    document.getElementById("helper").innerText =
+      "The RSVP period has ended.";
+
+  }
 
 }
 
@@ -109,10 +107,10 @@ function updateUI() {
       " You are attending.";
 
     document.getElementById("helper").innerText =
-      "Need to change your RSVP? Click again.";
+      "Your RSVP has been confirmed.";
 
-    btn.innerText =
-      " Done";
+    btn.innerText = "Invitation Accepted";
+    btn.disabled = true;
 
     document.getElementById("companionSection").style.display = "block";
     loadCompanionRequests()
@@ -134,13 +132,14 @@ function updateUI() {
 
 
 function toggleRSVP() {
+  if (currentRSVP === "Yes") return;
 
-const session = JSON.parse(sessionStorage.getItem("rsvp_session"));
+  const session = JSON.parse(sessionStorage.getItem("rsvp_session"));
 
-if (!session || session.guestId !== guestId) {
-  alert("Session expired. Please reopen your invite link.");
-  return;
-}
+  if (!session || session.guestId !== guestId) {
+    alert("Session expired. Please reopen your invite link.");
+    return;
+  }
 
   const btn =
     document.getElementById("rsvpBtn");
@@ -153,35 +152,35 @@ if (!session || session.guestId !== guestId) {
   setTimeout(() => {
 
     const newRSVP =
-      currentRSVP === "Yes"
-        ? "No"
-        : "Yes";
+      currentRSVP === "Yes" ?
+      "No" :
+      "Yes";
 
     fetch(WEBAPP_URL, {
-      method: "POST",
-      body: JSON.stringify({
-        guestId: guestId,
-        rsvp: newRSVP,
-        token: token
+        method: "POST",
+        body: JSON.stringify({
+          guestId: guestId,
+          rsvp: newRSVP,
+          token: token
+        })
       })
-    })
-    .then(res => res.json())
-    .then(() => {
+      .then(res => res.json())
+      .then(() => {
 
-      currentRSVP = newRSVP;
+        currentRSVP = newRSVP;
 
-      btn.disabled = false;
+        btn.disabled = false;
 
-      updateUI();
+        updateUI();
 
-    })
-    .catch(() => {
+      })
+      .catch(() => {
 
-      btn.disabled = false;
+        btn.disabled = false;
 
-      btn.innerText =
-        "Try Again";
-    });
+        btn.innerText =
+          "Try Again";
+      });
 
   }, 180);
 }
@@ -273,121 +272,120 @@ document.body.style.overflow = "hidden";
 
 btn.addEventListener("click", () => {
 
-  
-    // Start music
-    music.volume = 0.1;
-    music.play();
-    
+
+  // Start music
+  music.volume = 0.1;
+  music.play();
 
 
-    // Fade out landing page
-    landing.style.opacity = "0";
-    
 
-    // Enable scrolling
-    document.body.style.overflow = "auto";
+  // Fade out landing page
+  landing.style.opacity = "0";
 
-    // Remove landing page after fade
-    setTimeout(() => {
-        landing.style.display = "none";
-    }, 5000);
+
+  // Enable scrolling
+  document.body.style.overflow = "auto";
+
+  // Remove landing page after fade
+  setTimeout(() => {
+    landing.style.display = "none";
+  }, 5000);
 
 });
 
 
 function loadCompanionRequests() {
 
-    fetch(`${WEBAPP_URL}?id=${guestId}&token=${token}`)
-        .then(res => res.json())
-        .then(data => {
+  fetch(`${WEBAPP_URL}?id=${guestId}&token=${token}`)
+    .then(res => res.json())
+    .then(data => {
 
-            if (data.status !== "success") return;
+      if (data.status !== "success") return;
 
-            renderCompanionRequests(data.companions || []);
+      renderCompanionRequests(data.companions || []);
 
-        });
+    });
 
 }
 
 function renderCompanionRequests(companions) {
 
-    const list = document.getElementById("companionList");
+  const list = document.getElementById("companionList");
 
-    list.innerHTML = "";
+  list.innerHTML = "";
 
-    companions.forEach(request => {
+  companions.forEach(request => {
 
-        list.innerHTML += `
+    list.innerHTML += `
             <div class="request-card">
                 <h4>${request.name}</h4>
                 <div class="request-status">${request.status}</div>
             </div>
         `;
 
-    });
+  });
 
 }
 
 
 function submitCompanionRequest() {
 
-    const input = document.getElementById("companionName");
-    const btn = document.getElementById("submitCompanionBtn");
+  const input = document.getElementById("companionName");
+  const btn = document.getElementById("submitCompanionBtn");
 
-    const companionName = input.value.trim();
+  const companionName = input.value.trim();
 
-    if (!companionName) {
-        alert("Please enter your companion's name.");
-        return;
-    }
+  if (!companionName) {
+    alert("Please enter your companion's name.");
+    return;
+  }
 
-    if (!confirm(`Please confirm the companion's name:\n\n${companionName}`))
-        return;
+  if (!confirm(`Please confirm the companion's name:\n\n${companionName}`))
+    return;
 
-    btn.disabled = true;
-    btn.textContent = "Submitting...";
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
 
-    fetch(WEBAPP_URL, {
+  fetch(WEBAPP_URL, {
 
-        method: "POST",
+      method: "POST",
 
-        body: JSON.stringify({
+      body: JSON.stringify({
 
-            action: "companion",
+        action: "companion",
 
-            guestId: guestId,
+        guestId: guestId,
 
-            token: token,
+        token: token,
 
-            companionName: companionName
+        companionName: companionName
 
-        })
+      })
 
     })
     .then(res => res.json())
     .then(data => {
 
-        btn.disabled = false;
-        btn.textContent = "Submit Request";
+      btn.disabled = false;
+      btn.textContent = "Submit Request";
 
-        if (data.status !== "success") {
-            alert(data.message);
-            return;
-        }
+      if (data.status !== "success") {
+        alert(data.message);
+        return;
+      }
 
-        input.value = "";
+      input.value = "";
 
-        loadCompanionRequests();
+      loadCompanionRequests();
 
     })
     .catch(() => {
 
-        btn.disabled = false;
-        btn.textContent = "Submit Request";
+      btn.disabled = false;
+      btn.textContent = "Submit Request";
 
-        alert("Unable to submit request.");
+      alert("Unable to submit request.");
 
     });
 
 }
-

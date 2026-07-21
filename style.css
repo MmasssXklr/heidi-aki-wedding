@@ -37,7 +37,7 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
-    background-image: url("./images/DSC03137.jpg");
+    background-image: url("./images/DSC03137.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -48,7 +48,7 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(185, 48, 48, 0.35); /* Adjust darkness */
+    background: rgba(185, 48, 48, 0.35); 
     z-index: 0;
 }
 
@@ -351,7 +351,7 @@ body {
 
 .name-list {
     display: grid;
-    row-gap: 30px;   /* same spacing as Principal Sponsors */
+    row-gap: 30px;   
     text-align: center;
 }
 
@@ -484,7 +484,7 @@ body {
 
 .bright-pink {
     background: #F75C7B;
-    color: #222; /* Better contrast on the lighter pink */
+    color: #222; 
 }
 
 /* LIST */
