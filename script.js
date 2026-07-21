@@ -6,6 +6,7 @@ const Minutes = document.getElementById('minutes');
 const Seconds = document.getElementById('seconds');
 
 const targetDate = new Date("2026-08-21T14:30:00").getTime();
+const rsvpdeadline = new Date("2026-08-03T23:59:59");
 
 function timer() {
 
@@ -45,7 +46,27 @@ const token = params.get("token");
 
 let currentRSVP = null;
 
+function checkRSVPDeadline() {
 
+    if (new Date() > rsvpdeadline) {
+
+        const rsvpBtn = document.getElementById("rsvpBtn");
+        const companionBtn = document.getElementById("submitCompanionBtn");
+
+        rsvpBtn.disabled = true;
+        rsvpBtn.innerText = "RSVP Closed";
+
+        if (companionBtn) {
+            companionBtn.disabled = true;
+            companionBtn.innerText = "Requests Closed";
+        }
+
+        document.getElementById("helper").innerText =
+            "The RSVP period has ended.";
+
+    }
+
+}
 
 function loadGuest() {
 
@@ -246,17 +267,22 @@ const btn = document.getElementById("enterBtn");
 const landing = document.getElementById("landing-page");
 const music = document.getElementById("bgMusic");
 
+
 // Prevent scrolling until invitation is opened
 document.body.style.overflow = "hidden";
 
 btn.addEventListener("click", () => {
 
+  
     // Start music
     music.volume = 0.1;
     music.play();
+    
+
 
     // Fade out landing page
     landing.style.opacity = "0";
+    
 
     // Enable scrolling
     document.body.style.overflow = "auto";
@@ -264,7 +290,7 @@ btn.addEventListener("click", () => {
     // Remove landing page after fade
     setTimeout(() => {
         landing.style.display = "none";
-    }, 1000);
+    }, 5000);
 
 });
 

@@ -31,7 +31,7 @@ body {
 
 /* HERO */
 .hero {
-    padding: 10px 0 0 0;
+    padding: 10px 0 10px 0;
     height: auto;
     justify-content: center;
     align-items: center;
@@ -128,10 +128,13 @@ body {
 
 .card {
     background: rgba(255,255,255,0.1);
-    padding: 20px;
+    padding: 5px;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 1%;
+    margin-bottom: 1%;
     border-radius: 12px;
-    min-width: 250px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
 }
 
 .card h3 {
@@ -161,8 +164,26 @@ body {
 .btn:hover {
     background: var(--cardinal);
     transform: scale(1.05);
-
 }
+
+/* BUTTON */
+.btn-link {
+    margin: 10px;
+    padding: 12px 25px;
+    border: none;
+    background: var(--burgundy);
+    color: white;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-link:hover {
+    background: var(--cardinal);
+    transform: scale(1.05);
+}
+
 
 /* BUTTON */
 .btnlanding {
@@ -200,6 +221,8 @@ body {
   animation: pulse 2.0s infinite;
 }
 
+
+
 /* RESPONSIVE */
 /*Large Desktop*/
 @media (min-width: 1440px) {
@@ -224,12 +247,18 @@ body {
     }
 
     .card {
-        width: 100%;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
     }
 
     .dress-code{
         padding-left: 0;
         padding-right: 0;
+    }
+
+    .companion-form{
+    justify-content: center;
     }
 
 }
@@ -313,7 +342,11 @@ body {
     margin: auto;
     text-align: center;
     padding: 1em;
+}
 
+.two-col h3{
+    color: var(--wine);
+    margin-bottom: 10px;
 }
 
 .name-list {
@@ -323,7 +356,8 @@ body {
 }
 
 .name-list h3 {
-    margin: 0 0 15px;
+    color: var(--wine);
+    margin-bottom: 10px;
 }
 
 .name-list p {
