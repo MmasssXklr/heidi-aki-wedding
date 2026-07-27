@@ -336,7 +336,7 @@ function submitCompanionRequest() {
   const companionName = input.value.trim();
 
   if (!companionName) {
-    alert("Please enter your companion's name.");
+    alert("Please confirm the name of the attendee/s");
     return;
   }
 
