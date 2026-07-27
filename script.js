@@ -340,7 +340,7 @@ function submitCompanionRequest() {
     return;
   }
 
-  if (!confirm(`Please confirm the companion's name:\n\n${companionName}`))
+  if (!confirm(`Please confirm the name of the attendee/s:\n\n${companionName}`))
     return;
 
   btn.disabled = true;
