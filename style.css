@@ -94,20 +94,6 @@ body {
     src: url('./fonts/Calligraphy.otf') format('truetype');
 }
 
-@font-face {
-    font-family: "Parisienne";
-    src: url("./fonts/Parisienne-Regular.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "Cookie";
-    src: url("./fonts/Cookie-Regular.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "Tangerine-Regular";
-    src: url("./fonts/Tangerine-Regular.ttf") format("truetype");
-}
 
 @font-face {
     font-family: "Italianno-Regular";
@@ -119,7 +105,7 @@ body {
 .two-col p {
     font-family: "Italianno-Regular";
     font-weight: bold;
-    font-size: 25px;
+    font-size: 30px;
 
 
 }
@@ -323,7 +309,7 @@ body {
 }
 
 .block h3 {
-    color: var(--wine);
+    color: var(--cardinal);
     margin-bottom: 10px;
 }
 
@@ -376,7 +362,7 @@ body {
 }
 
 .two-col h3{
-    color: var(--wine);
+    color: var(--cardinal);
     margin-bottom: 10px;
 }
 
@@ -387,7 +373,7 @@ body {
 }
 
 .name-list h3 {
-    color: var(--wine);
+    color: var(--cardinal);
     margin-bottom: 10px;
 }
 
