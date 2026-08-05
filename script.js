@@ -390,3 +390,12 @@ function submitCompanionRequest() {
 
 }
 
+const musicToggle = document.getElementById("musicToggle");
+
+musicToggle.addEventListener("click", () => {
+
+    music.muted = !music.muted;
+
+    musicToggle.textContent = music.muted ? "🔇" : "🔊";
+
+});
