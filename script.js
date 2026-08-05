@@ -4,7 +4,7 @@ const Minutes = document.getElementById('minutes');
 const Seconds = document.getElementById('seconds');
 
 const targetDate = new Date("2026-08-21T14:30:00").getTime();
-const rsvpdeadline = new Date("2026-08-04T23:59:59");
+const rsvpdeadline = new Date("2026-08-09T23:59:59");
 
 function timer() {
 
@@ -389,3 +389,4 @@ function submitCompanionRequest() {
     });
 
 }
+
